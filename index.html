@@ -6,9 +6,15 @@
 <title>كأس العالم 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
-  :root{--gold:#C9A84C;--gold-light:#F0CC6E;--dark:#0A0E1A;--card:#131929;--border:#1E2D45;--green:#1DB954;--red:#E63946;--muted:#6B7A99;--text:#E8EDF5;--live:#FF4444}
+  :root{
+    --gold:#FFD700;--gold-light:#FFE55C;
+    --dark:#1A1F35;--card:#242B45;--border:#2E3A5C;
+    --green:#00E676;--red:#FF5252;--muted:#8B9CC8;
+    --text:#F0F4FF;--live:#FF6B6B;
+    --accent1:#6C63FF;--accent2:#00BCD4;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Cairo',sans-serif;background:var(--dark);color:var(--text);min-height:100vh;overflow-x:hidden}
+  body{font-family:'Cairo',sans-serif;background:linear-gradient(180deg,#1A1F35 0%,#1E2540 50%,#1A1F35 100%);background-attachment:fixed;color:var(--text);min-height:100vh;overflow-x:hidden}
 
   /* SETUP SCREEN */
   #setup-screen{display:none!important;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:24px;text-align:center;gap:16px}
@@ -31,26 +37,26 @@
 
   /* MAIN APP */
   #main-app{display:none}
-  .header{background:linear-gradient(135deg,#0D1B35,#0A0E1A 60%,#1a1000);padding:16px 16px 12px;text-align:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .header{background:linear-gradient(135deg,#1E2D5A,#242B45 50%,#1A2744);padding:16px 16px 12px;text-align:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
   .header h1{font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .header p{font-size:11px;color:var(--muted);margin-top:2px}
   .trophy-sm{font-size:26px;display:block;margin-bottom:2px}
   .update-bar{font-size:11px;color:var(--muted);margin-top:6px;display:flex;align-items:center;justify-content:center;gap:6px}
-  .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 
-  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;background:var(--card);border-bottom:1px solid var(--border);padding:0 6px}
+  .tabs{display:flex;overflow-x:auto;scrollbar-width:none;background:linear-gradient(90deg,#1E2844,#242B45,#1E2844);border-bottom:1px solid #3A4A70;padding:0 6px}
   .tabs::-webkit-scrollbar{display:none}
   .tab{flex-shrink:0;padding:11px 14px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all .2s}
   .tab.active{color:var(--gold);border-bottom-color:var(--gold)}
 
   .tab-content{display:none}.tab-content.active{display:block}
   .sec{padding:12px 12px 0}
-  .sec-title{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:2px;padding:8px 4px;display:flex;align-items:center;gap:8px}
-  .sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+  .sec-title{font-size:11px;font-weight:700;background:linear-gradient(90deg,#FFD700,#00BCD4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:2px;padding:8px 4px;display:flex;align-items:center;gap:8px}
+  .sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#3A4A70,transparent)}
 
-  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;position:relative;overflow:hidden}
-  .card.live-card{border-color:rgba(255,68,68,.4);background:linear-gradient(135deg,var(--card),#1A0A0A)}
+  .card{background:linear-gradient(135deg,#2A3350,#242B45);border:1px solid #3A4A70;border-radius:14px;padding:14px;margin-bottom:10px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+  .card.live-card{border-color:rgba(255,107,107,.5);background:linear-gradient(135deg,#2E2040,#1E1535);box-shadow:0 4px 20px rgba(255,107,107,0.15)}
   .card.live-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--live),transparent);animation:shimmer 2s infinite}
   @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
   .card-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
@@ -67,16 +73,16 @@
   .tname{font-size:12px;font-weight:700;text-align:center;line-height:1.2}
   .scores{display:flex;align-items:center;gap:5px;flex-shrink:0}
   .sc{font-size:36px;font-weight:900;min-width:28px;text-align:center;line-height:1}
-  .sc.w{color:var(--gold)}
+  .sc.w{color:#FFD700;text-shadow:0 0 12px rgba(255,215,0,0.4)}
   .dash{font-size:20px;color:var(--border)}
   .vs{font-size:13px;color:var(--muted);font-weight:700}
   .venue{text-align:center;margin-top:8px;font-size:10px;color:var(--muted)}
 
   /* standings */
-  .grp-box{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:14px;overflow:hidden}
-  .grp-hd{background:linear-gradient(90deg,rgba(201,168,76,.1),transparent);padding:10px 14px;font-size:14px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border)}
+  .grp-box{background:linear-gradient(135deg,#2A3350,#242B45);border:1px solid #3A4A70;border-radius:10px;margin-bottom:14px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+  .grp-hd{background:linear-gradient(90deg,rgba(255,215,0,.12),rgba(108,99,255,.08),transparent);padding:10px 14px;font-size:14px;font-weight:700;color:var(--gold);border-bottom:1px solid var(--border)}
   table{width:100%;border-collapse:collapse;font-size:12px}
-  th{background:var(--border);color:var(--gold);padding:7px 5px;text-align:center;font-size:11px;font-weight:700}
+  th{background:linear-gradient(90deg,#2E3A5C,#323F62);color:#FFD700;padding:7px 5px;text-align:center;font-size:11px;font-weight:700}
   th:first-child{text-align:right;padding-right:10px}
   td{padding:9px 5px;text-align:center;border-bottom:1px solid rgba(30,45,69,.5)}
   td:first-child{text-align:right;padding-right:10px}
